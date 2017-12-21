@@ -5,7 +5,8 @@
     "main": "app/main.js",
     "scripts": {
         "test": "hello",
-        "start": "electron ."
+        "start": "electron .",
+        "packager": "electron-packager ./app electron_demo --all --out ./OutApp --version 0.37.3 --overwrite --icon=./app/img/icon/icon.ico"
     },
     "keywords": [
         "electron"
@@ -13,7 +14,9 @@
     "author": "jasonlu",
     "license": "ISC",
     "devDependencies": {
+        "asar": "^0.14.0",
         "electron": "^1.8.1",
+        "electron-packager": "^10.1.0",
         "gulp": "^3.9.1"
     },
     "dependencies": {

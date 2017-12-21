@@ -9,7 +9,18 @@
     <!-- 引入 WeUI -->
     <link rel="stylesheet" href="./css/weui.min.css" />
     <link rel="stylesheet" href="./css/common.css" />
+    <!-- <script>
+        window.nodeRequire = require;
+        delete window.require;
+        delete window.exports;
+        delete window.module;
+    </script> -->
     <script type="text/javascript" src="./js/lib/jquery-3.2.1.js" charset="utf-8"></script>
+    <script>
+        if (typeof module === 'object') {
+            window.jQuery = window.$ = module.exports;
+        };
+    </script>
 </head>
 
 <body>
@@ -116,6 +127,13 @@
 
     <script type="text/javascript" src="./js/common.js" charset="utf-8"></script>
     <script type="text/javascript" src="./js/parseJson.js" charset="utf-8"></script>
+
+    <!-- <script>
+        // You can also require other files to run in this process
+        // require('./renderer.js');
+        require('./js/common.js');
+        require('./js/parseJson.js');
+    </script> -->
 </body>
 
 </html>
