@@ -1,0 +1,23 @@
+{
+    "name": "com.jason.web",
+    "version": "1.0.0",
+    "description": "electron程序",
+    "main": "app/main.js",
+    "scripts": {
+        "test": "hello",
+        "start": "electron ."
+    },
+    "keywords": [
+        "electron"
+    ],
+    "author": "jasonlu",
+    "license": "ISC",
+    "devDependencies": {
+        "electron": "^1.8.1",
+        "gulp": "^3.9.1"
+    },
+    "dependencies": {
+        "jquery": "^3.2.1",
+        "weui": "^1.1.2"
+    }
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>报表公式转换</title>
+    <!-- 引入 WeUI -->
+    <link rel="stylesheet" href="./css/weui.min.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <script type="text/javascript" src="./js/lib/jquery-3.2.1.js" charset="utf-8"></script>
+</head>
+
+<body>
+    <div>
+        <div class="weui-cell__hd"><label class="weui-label">JSON解析：</label></div>
+        <div class="div-left">
+            <textarea id="jsonData" class="textInput" placeholder="请输入json数据" rows="10"></textarea>
+            </textarea>
+
+            <input type="button" id="parsItem" class="weui-btn weui-btn_primary" value="解析成公式" />
+            <div class="button-sp-area">
+                <!-- <a href="javascript:;" id="parsItem" class="weui-btn weui-btn_mini weui-btn_primary">解析成公式</a> -->
+                <!-- <a href="javascript:;" id="formatJson" class="weui-btn weui-btn_mini weui-btn_warn">格式化json</a> -->
+            </div>
+        </div>
+
+        <div class="div-right">
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label_cust">后端公式：</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input bule" type="text" id="formula" placeholder="请输入公式" data-label="formula">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label_cust">后端校验公式：</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input bule" type="text" id="validateFormula" placeholder="请输入后端校验公式" data-label="validateFormula">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label_cust">申报属性：</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input bule" type="text" id="sbsx" placeholder="请输入申报属性" data-label="sbsx">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label_cust">连接报表列表：</label>
+                    <a href="javascript:;" id="addReport" class="weui-btn weui-btn_mini weui-btn_primary">新增</a>
+                    <a href="javascript:;" id="delReport" class="weui-btn weui-btn_mini weui-btn_warn">删除</a>
+                </div>
+                <!-- 数组 -->
+                <div class="weui-cell__bd reports">
+                    <div class="report" data-label="reports">
+                        <label class="weui-label_cust">连接报表id：</label>
+                        <input class="weui-input bule" type="text" id="linkReportId" placeholder="请输入连接报表列表" data-label="id">
+                        <label class="weui-label_cust">连接报表名称：</label>
+                        <input class="weui-input bule" type="text" id="linkReportName" placeholder="连接报表名称" data-label="name">
+                    </div>
+                </div>
+            </div>
+
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label_cust">连接报表列表url：</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input bule" type="text" id="linkReportsUrl" placeholder="请输入连接报表列表url" data-label="linkReportsUrl">
+                </div>
+            </div>
+
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label_cust">控件类型：</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input bule" type="text" id="elementType" placeholder="请输入控件类型" data-label="elementType">
+                </div>
+            </div>
+
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label_cust">展示精度：</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input bule" type="text" id="precision" placeholder="请输入展示时数值精度" data-label="precision">
+                </div>
+            </div>
+
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label_cust">前端取值公式：</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input bule" type="text" id="frontFormula" placeholder="请输入前端取值公式" data-label="frontFormula">
+                </div>
+            </div>
+
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label_cust">前端校验公式：</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input bule" type="text" id="frontValidateFormula" placeholder="请输入前端校验公式" data-label="frontValidateFormula">
+                </div>
+            </div>
+
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label_cust">主科目：</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input bule" type="text" id="zkm" placeholder="请输入主科目" data-label="zkm">
+                </div>
+            </div>
+
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label_cust">指定默认科目列表：</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input bule" type="text" id="kms" placeholder="请输入指定默认科目列表" data-label="kms">
+                </div>
+            </div>
+
+            <input type="button" id="parsJson" class="weui-btn weui-btn_primary" value="生成json数据" />
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./js/common.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/parseJson.js" charset="utf-8"></script>
+</body>
+
+</html>

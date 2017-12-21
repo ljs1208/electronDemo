@@ -1,0 +1,50 @@
+    .textInput {
+    font-family: -apple-system-font, Helvetica Neue, sans-serif;
+    border-width: 1px;
+    border-color: #6ec3ee;
+    display: block;
+    resize: none;
+    width: 100%;
+    color: inherit;
+    font-size: 1em;
+    line-height: inherit;
+    outline: 0
+}
+
+.weui-label_cust {
+    display: block;
+    width: 150px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.bule {
+    color: #0714c5;
+}
+
+.report {
+    border: 1px solid #3F51B5;
+    margin: 1px 0;
+}
+
+.div-left {
+    /* float: left;
+    width: 49%; */
+    /* border: 1px solid #F00 */
+}
+
+.div-right {
+    /* float: left;
+    width: 49%; */
+    /* border: 1px solid #000 */
+}
+
+.weui-cell {
+    padding: 10px 15px;
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
