@@ -1,12 +1,14 @@
 {
-    "name": "com.jason.web",
+    "name": "tools",
     "version": "1.0.0",
     "description": "electron程序",
-    "main": "app/main.js",
+    "main": "./app/main.js",
     "scripts": {
         "test": "hello",
         "start": "electron .",
-        "packager": "electron-packager ./app electron_demo --all --out ./OutApp --version 0.37.3 --overwrite --icon=./app/img/icon/icon.ico"
+        "packageOsx": "electron-packager . --platform=darwin --arch=x64  --out=./dist --asar --app-version=0.0.1 --icon=./app/img/icon/icon.ico --ignore=\"(dist|src|docs|.gitignore|LICENSE|README.md|webpack.config*|node_modules)\"",
+        "packageWin": "electron-packager ./ tools  --platform=win32 --arch=x64  --out=./dist --asar --app-version=0.0.1 --icon=./app/img/icon/icon.ico --ignore=\"(dist|src|docs|.gitignore|LICENSE|README.md|webpack.config.js|node_modules)\"",
+        "packageLinux": "electron-packager . --platform=linux --arch=x64 --out=./dist --asar --app-version=0.0.1 --icon=./app/img/icon/icon.ico --ignore=\"(dist|src|docs|.gitignore|LICENSE|README.md|webpack.config.js|node_modules)\""
     },
     "keywords": [
         "electron"
@@ -16,11 +18,48 @@
     "devDependencies": {
         "asar": "^0.14.0",
         "electron": "^1.8.1",
+        "electron-builder": "^19.49.0",
         "electron-packager": "^10.1.0",
-        "gulp": "^3.9.1"
+        "gulp": "^3.9.1",
+        "postinstall": "0.0.1"
     },
     "dependencies": {
         "jquery": "^3.2.1",
         "weui": "^1.1.2"
+    },
+    "build": {
+        "productName": "Jasontools",
+        "appId": "com.jasonlu.webapp",
+        "dmg": {
+            "contents": [{
+                    "x": 410,
+                    "y": 150,
+                    "type": "link",
+                    "path": "/Applications"
+                },
+                {
+                    "x": 130,
+                    "y": 150,
+                    "type": "file"
+                }
+            ]
+        },
+        "directories": {
+            "output": "build"
+        },
+        "files": [
+            "dist/electron",
+            "node_modules/",
+            "package.json"
+        ],
+        "mac": {
+            "icon": "build/icons/icon.icns"
+        },
+        "win": {
+            "icon": "build/icons/icon.ico"
+        },
+        "linux": {
+            "icon": "build/icons/icon.ico"
+        }
     }
 }
